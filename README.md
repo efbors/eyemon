@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/dbcc2ce0-e119-4a25-a8d5-e05bfe2a5f5c
+
 # EyeMon: Hardware-Accelerated Signal Visualization
 
 EyeMon is a high-performance, GPU-accelerated signal monitoring tool designed for visualizing complex multi-level waveforms and multi-level quadrature constellations. 
@@ -6,7 +10,7 @@ EyeMon is a high-performance, GPU-accelerated signal monitoring tool designed fo
   <tr>
     <td width="48%" align="center" style="padding-right: 15px; border: none;">
       <h3>PAM4 Eye Diagram (Waveform)</h3>
-      <video src="[assets/pam4_fixed.mp4](https://github.com/user-attachments/assets/03b50cd6-77fd-458e-bbd2-005a347e33b5)" autoplay loop muted playsinline width="100%"></video>
+      <video src="https://github.com/user-attachments/assets/03b50cd6-77fd-458e-bbd2-005a347e33b5)" autoplay loop muted playsinline width="100%"></video>
     </td>
     <td width="48%" align="center" style="padding-left: 15px; border: none;">
       <h3>16-QAM Constellation</h3>
