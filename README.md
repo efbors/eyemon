@@ -6,11 +6,11 @@ EyeMon is a high-performance, GPU-accelerated signal monitoring tool designed fo
   <tr>
     <td width="48%" align="center" style="padding-right: 15px; border: none;">
       <h3>PAM4 Eye Diagram (Waveform)</h3>
-      <video src="assets/pam4_fixed.mp4" autoplay loop muted playsinline width="100%"></video>
+      <video src="[assets/pam4_fixed.mp4](https://github.com/user-attachments/assets/03b50cd6-77fd-458e-bbd2-005a347e33b5)" autoplay loop muted playsinline width="100%"></video>
     </td>
     <td width="48%" align="center" style="padding-left: 15px; border: none;">
       <h3>16-QAM Constellation</h3>
-      <video src="assets/qam16_fixed.mp4" autoplay loop muted playsinline width="100%"></video>
+      <video src="https://github.com/user-attachments/assets/692bb561-1f25-401e-833c-c9f3ebdeddc8" autoplay loop muted playsinline width="100%"></video>
     </td>
   </tr>
 </table>
@@ -77,6 +77,7 @@ EyeMon is designed to be highly flexible for both post-processing
 and live hardware-in-the-loop development. It operates in two primary modes:
 
 ### Mode 1: Animation Mode (Post-Processing)
+
 Use this mode when you have a pre-captured, long-duration
 signal (e.g., loaded from a `.csv` or `.npy`) and you want 
 to animate it to observe time-varying effects like thermal 
@@ -118,3 +119,13 @@ while system_is_running:
 ### Credits:
 scope inspired by 
 https://github.com/RandomDude4/PhosPe
+
+
+
+
+
+
+
+
+
+
