@@ -10,7 +10,7 @@ EyeMon is a high-performance, GPU-accelerated signal monitoring tool designed fo
   <tr>
     <td width="48%" align="center" style="padding-right: 15px; border: none;">
       <h3>PAM4 Eye Diagram (Waveform)</h3>
-      <video src="https://github.com/user-attachments/assets/03b50cd6-77fd-458e-bbd2-005a347e33b5)" autoplay loop muted playsinline width="100%"></video>
+      <video src="https://github.com/user-attachments/assets/a01b111c-8555-4550-a6da-43f2436116de" autoplay loop muted playsinline width="100%"></video>
     </td>
     <td width="48%" align="center" style="padding-left: 15px; border: none;">
       <h3>16-QAM Constellation</h3>
@@ -123,6 +123,10 @@ while system_is_running:
 ### Credits:
 scope inspired by 
 https://github.com/RandomDude4/PhosPe
+
+
+
+
 
 
 
