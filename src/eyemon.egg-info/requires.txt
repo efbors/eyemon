@@ -1,0 +1,6 @@
+dearpygui>=1.9.0
+numpy>=1.26.0
+scipy>=1.11.0
+matplotlib>=3.8.0
+PyYAML
+torch>=2.2.0

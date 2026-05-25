@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eyemon"
+version = "0.1.0"
+description = "realtime signal monitor based on torch and dearpygui."
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Felix Bors", email = "felix.bors@aibcore.com" }
+]
+
+dependencies = [
+    "dearpygui>=1.9.0",   # Immediate-mode GPU accelerated GUI engine
+    "numpy>=1.26.0",
+    "scipy>=1.11.0",
+    "matplotlib>=3.8.0",
+    "PyYAML",
+    "torch>=2.2.0",       # Universal Tensor engine (CUDA/MPS/CPU)
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/eyemon/dsp_gui.py
+src/eyemon/eyemon.py
+src/eyemon/phosphor_engine.py
+src/eyemon.egg-info/PKG-INFO
+src/eyemon.egg-info/SOURCES.txt
+src/eyemon.egg-info/dependency_links.txt
+src/eyemon.egg-info/requires.txt
+src/eyemon.egg-info/top_level.txt

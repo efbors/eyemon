@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: eyemon
+Version: 0.1.0
+Summary: realtime signal monitor based on torch and dearpygui.
+Author-email: Felix Bors <felix.bors@aibcore.com>
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dearpygui>=1.9.0
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: scipy>=1.11.0
+Requires-Dist: matplotlib>=3.8.0
+Requires-Dist: PyYAML
+Requires-Dist: torch>=2.2.0
+Dynamic: license-file
+
+
