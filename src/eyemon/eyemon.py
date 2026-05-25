@@ -140,7 +140,7 @@ class Eyemon:
         self._last_flush_time = time.time()
 
         # Package the Payload
-        # Pack the frame index and the structured dictionary we built via plot(), trace(), etc.
+        # Pack the frame index and the structured dictionary already built via plot(), trace(), etc.
         payload = {
             'frame_index': frame_index,
             'data': self._staging_buffer
@@ -276,8 +276,6 @@ class Eyemon:
 
                     # Flush triggers the dynamic hardware pacing
                     self.flush(frame_index)
-
-                    print(f"efb: frame_index={frame_index}")
 
                     current_index += advance_per_frame
                     frame_index += 1

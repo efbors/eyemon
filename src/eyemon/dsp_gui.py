@@ -1,12 +1,32 @@
+"""
+DspGui Module
+
+This module provides the primary graphical user interface for the EyeMon signal
+monitoring application. It leverages DearPyGui for a lightweight, high-performance
+rendering window and utilizes a multi-threaded architecture to prevent UI blocking
+while handling DSP payloads and GPU-accelerated rendering via the PhosphorEngine.
+"""
 import threading
+import queue
 import numpy as np
 import dearpygui.dearpygui as dpg
+from typing import Dict, Any
 
 from eyemon.phosphor_engine import PhosphorEngine
 
 
 class DspGui:
     def __init__(self, config, queue):
+        """
+                Initializes the DSP GUI state, extracts layout dimensions from the configuration,
+                and pre-calculates the P31 phosphor kernel and colormap lookup tables.
+
+                Args:
+                    config (Dict[str, Any]): The application configuration dictionary containing
+                                             tool configurations and resolution parameters.
+                    data_queue (queue.Queue): A thread-safe queue used to receive incoming DSP
+                                              payloads from the background probe/worker.
+                """
         self.config = config
         self.tools_cfg = config.get('tools', {})
         self.queue = queue
@@ -65,16 +85,22 @@ class DspGui:
         cmap_colors = np.tanh(map_index * rgb_base * multfactor)
         cmap_colors = np.clip(cmap_colors, 0.0, 1.0)
 
-        # DearPyGui requires RGBA arrays, so we add a fully opaque Alpha channel
+        # DearPyGui requires RGBA arrays; add a fully opaque Alpha channel
         alpha_channel = np.ones((1024, 1), dtype=np.float32)
         self.cmap_lut = np.hstack((cmap_colors, alpha_channel)).astype(np.float32)
 
     @classmethod
-    def launch(cls, config, queue):
+    def launch(cls, config: Dict[str, Any], data_queue: queue.Queue) -> None:
         """
-        The Bootstrap Function.
+        The Bootstrap Function. Initializes the GUI instance, configures the
+        DearPyGui context, spawns the background processing thread, and starts
+        the main render loop.
+
+        Args:
+            config (Dict[str, Any]): The configuration dictionary to pass to the instance.
+            data_queue (queue.Queue): The queue providing data to the processing loop.
         """
-        gui_app = cls(config, queue)
+        gui_app = cls(config, data_queue)
         gui_app._setup_dpg()
 
         worker_thread = threading.Thread(target=gui_app._processing_loop, daemon=True)
@@ -82,9 +108,10 @@ class DspGui:
 
         gui_app._run_dpg()
 
-    def _setup_dpg(self):
+    def _setup_dpg(self) -> None:
         """
-        Builds the 4-region layout and applies the custom themes.
+        Builds the 4-region UI layout, configures dynamic textures for GPU rendering,
+        and applies the custom CRT glass and global dark themes to the DearPyGui context.
         """
         dpg.create_context()
 
@@ -164,9 +191,11 @@ class DspGui:
         dpg.setup_dearpygui()
         dpg.show_viewport()
 
-    def _processing_loop(self):
+    def _processing_loop(self) -> None:
         """
-        The background worker.
+        The background worker thread. Constantly listens to the thread-safe queue for
+        incoming payloads, processes 2D signal frames through the PhosphorEngine, and
+        pushes the resulting textures and metrics to the DearPyGui interface.
         """
         while self.is_running:
             try:
@@ -208,9 +237,11 @@ class DspGui:
                 print(f"GUI Worker Thread Error: {e}")
                 self.is_running = False
 
-    def _run_dpg(self):
+    def _run_dpg(self) -> None:
         """
-        Takes over the main thread.
+        Takes over the main thread to execute DearPyGui's highly optimized internal render
+        loop. Once the window is closed, it cleans up the DPG context and flags the worker
+        thread to shut down.
         """
         dpg.start_dearpygui()
         self.is_running = False
