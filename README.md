@@ -1,6 +1,5 @@
 
 
-https://github.com/user-attachments/assets/dbcc2ce0-e119-4a25-a8d5-e05bfe2a5f5c
 
 # EyeMon: Hardware-Accelerated Signal Visualization
 
